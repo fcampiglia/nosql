@@ -1,0 +1,11 @@
+C:\Users\Pablo\Source\Repos\urbanmove-back\dal\bin\Release\netcoreapp2.1\dal.deps.json
+C:\Users\Pablo\Source\Repos\urbanmove-back\dal\bin\Release\netcoreapp2.1\dal.runtimeconfig.json
+C:\Users\Pablo\Source\Repos\urbanmove-back\dal\bin\Release\netcoreapp2.1\dal.runtimeconfig.dev.json
+C:\Users\Pablo\Source\Repos\urbanmove-back\dal\bin\Release\netcoreapp2.1\dal.dll
+C:\Users\Pablo\Source\Repos\urbanmove-back\dal\bin\Release\netcoreapp2.1\dal.pdb
+C:\Users\Pablo\Source\Repos\urbanmove-back\dal\obj\Release\netcoreapp2.1\dal.csprojAssemblyReference.cache
+C:\Users\Pablo\Source\Repos\urbanmove-back\dal\obj\Release\netcoreapp2.1\dal.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Source\Repos\urbanmove-back\dal\obj\Release\netcoreapp2.1\dal.AssemblyInfoInputs.cache
+C:\Users\Pablo\Source\Repos\urbanmove-back\dal\obj\Release\netcoreapp2.1\dal.AssemblyInfo.cs
+C:\Users\Pablo\Source\Repos\urbanmove-back\dal\obj\Release\netcoreapp2.1\dal.dll
+C:\Users\Pablo\Source\Repos\urbanmove-back\dal\obj\Release\netcoreapp2.1\dal.pdb
