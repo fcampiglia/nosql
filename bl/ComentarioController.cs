@@ -38,8 +38,17 @@ namespace bl
 
             return comentario;          
             
-        }        
-       
+        }
+
+        public List<Comentario> ComentariosUsuario(String email)
+        {
+
+            List<Comentario> listaRetorno = _comentarios.Find<Comentario>(Comentario => Comentario.Usuario.Email == email).ToList();
+
+            return listaRetorno;
+
+        }
+
 
         public void Update(string id, Comentario comentarioIn) =>
            _comentarios.ReplaceOne(comentario => comentario.InternalId == id, comentarioIn);

@@ -8310,25 +8310,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Pablo\\.nuget\\packages\\": {},
+    "C:\\Users\\Fede\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pablo\\Source\\Repos\\nosql\\bl\\bl.csproj",
+      "projectUniqueName": "C:\\Users\\Fede\\Documents\\GitHub\\nosql\\bl\\bl.csproj",
       "projectName": "bl",
-      "projectPath": "C:\\Users\\Pablo\\Source\\Repos\\nosql\\bl\\bl.csproj",
-      "packagesPath": "C:\\Users\\Pablo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pablo\\Source\\Repos\\nosql\\bl\\obj\\",
+      "projectPath": "C:\\Users\\Fede\\Documents\\GitHub\\nosql\\bl\\bl.csproj",
+      "packagesPath": "C:\\Users\\Fede\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Fede\\Documents\\GitHub\\nosql\\bl\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Pablo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Fede\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -8342,8 +8342,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Pablo\\Source\\Repos\\nosql\\dal\\dal.csproj": {
-              "projectPath": "C:\\Users\\Pablo\\Source\\Repos\\nosql\\dal\\dal.csproj"
+            "C:\\Users\\Fede\\Documents\\GitHub\\nosql\\dal\\dal.csproj": {
+              "projectPath": "C:\\Users\\Fede\\Documents\\GitHub\\nosql\\dal\\dal.csproj"
             }
           }
         }
@@ -8369,10 +8369,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

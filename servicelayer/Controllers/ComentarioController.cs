@@ -29,6 +29,14 @@ namespace servicelayer.Controllers
 
 
         [AllowAnonymous]
+        [HttpGet("ComentariosDeUsuario")]
+        public IActionResult List([FromQuery]String email)
+        {
+           var comentarios= _comentarioService.ComentariosUsuario(email);
+            return Ok(comentarios);
+        }
+
+        [AllowAnonymous]
         [HttpPost("Comentar")]
         public IActionResult Post([FromBody]Comentario comentario)
         {

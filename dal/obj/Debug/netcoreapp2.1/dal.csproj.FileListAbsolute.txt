@@ -30,3 +30,13 @@ C:\Users\Pablo\Source\Repos\nosql\dal\obj\Debug\netcoreapp2.1\dal.AssemblyInfoIn
 C:\Users\Pablo\Source\Repos\nosql\dal\obj\Debug\netcoreapp2.1\dal.AssemblyInfo.cs
 C:\Users\Pablo\Source\Repos\nosql\dal\obj\Debug\netcoreapp2.1\dal.dll
 C:\Users\Pablo\Source\Repos\nosql\dal\obj\Debug\netcoreapp2.1\dal.pdb
+C:\Users\Fede\Documents\GitHub\nosql\dal\bin\Debug\netcoreapp2.1\dal.deps.json
+C:\Users\Fede\Documents\GitHub\nosql\dal\bin\Debug\netcoreapp2.1\dal.runtimeconfig.json
+C:\Users\Fede\Documents\GitHub\nosql\dal\bin\Debug\netcoreapp2.1\dal.runtimeconfig.dev.json
+C:\Users\Fede\Documents\GitHub\nosql\dal\bin\Debug\netcoreapp2.1\dal.dll
+C:\Users\Fede\Documents\GitHub\nosql\dal\bin\Debug\netcoreapp2.1\dal.pdb
+C:\Users\Fede\Documents\GitHub\nosql\dal\obj\Debug\netcoreapp2.1\dal.csprojAssemblyReference.cache
+C:\Users\Fede\Documents\GitHub\nosql\dal\obj\Debug\netcoreapp2.1\dal.AssemblyInfoInputs.cache
+C:\Users\Fede\Documents\GitHub\nosql\dal\obj\Debug\netcoreapp2.1\dal.AssemblyInfo.cs
+C:\Users\Fede\Documents\GitHub\nosql\dal\obj\Debug\netcoreapp2.1\dal.dll
+C:\Users\Fede\Documents\GitHub\nosql\dal\obj\Debug\netcoreapp2.1\dal.pdb
