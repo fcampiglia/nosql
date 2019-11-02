@@ -8317,11 +8317,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pablo\\source\\repos\\noSQL2019\\nosql\\bl\\bl.csproj",
+      "projectUniqueName": "C:\\Users\\Pablo\\Source\\Repos\\nosql\\bl\\bl.csproj",
       "projectName": "bl",
-      "projectPath": "C:\\Users\\Pablo\\source\\repos\\noSQL2019\\nosql\\bl\\bl.csproj",
+      "projectPath": "C:\\Users\\Pablo\\Source\\Repos\\nosql\\bl\\bl.csproj",
       "packagesPath": "C:\\Users\\Pablo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pablo\\source\\repos\\noSQL2019\\nosql\\bl\\obj\\",
+      "outputPath": "C:\\Users\\Pablo\\Source\\Repos\\nosql\\bl\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -8342,8 +8342,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Pablo\\source\\repos\\noSQL2019\\nosql\\dal\\dal.csproj": {
-              "projectPath": "C:\\Users\\Pablo\\source\\repos\\noSQL2019\\nosql\\dal\\dal.csproj"
+            "C:\\Users\\Pablo\\Source\\Repos\\nosql\\dal\\dal.csproj": {
+              "projectPath": "C:\\Users\\Pablo\\Source\\Repos\\nosql\\dal\\dal.csproj"
             }
           }
         }

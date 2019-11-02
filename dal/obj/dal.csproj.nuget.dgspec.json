@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pablo\\source\\repos\\noSQL2019\\nosql\\dal\\dal.csproj": {}
+    "C:\\Users\\Pablo\\Source\\Repos\\nosql\\dal\\dal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pablo\\source\\repos\\noSQL2019\\nosql\\dal\\dal.csproj": {
+    "C:\\Users\\Pablo\\Source\\Repos\\nosql\\dal\\dal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pablo\\source\\repos\\noSQL2019\\nosql\\dal\\dal.csproj",
+        "projectUniqueName": "C:\\Users\\Pablo\\Source\\Repos\\nosql\\dal\\dal.csproj",
         "projectName": "dal",
-        "projectPath": "C:\\Users\\Pablo\\source\\repos\\noSQL2019\\nosql\\dal\\dal.csproj",
+        "projectPath": "C:\\Users\\Pablo\\Source\\Repos\\nosql\\dal\\dal.csproj",
         "packagesPath": "C:\\Users\\Pablo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pablo\\source\\repos\\noSQL2019\\nosql\\dal\\obj\\",
+        "outputPath": "C:\\Users\\Pablo\\Source\\Repos\\nosql\\dal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
