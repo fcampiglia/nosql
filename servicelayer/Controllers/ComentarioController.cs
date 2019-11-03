@@ -33,7 +33,14 @@ namespace servicelayer.Controllers
         public IActionResult List([FromQuery]String email)
         {
            var comentarios= _comentarioService.ComentariosUsuario(email);
-            return Ok(comentarios);
+            if (comentarios is null)
+            {
+                return Ok(new { result = false, message = "El usuario ingresado no tiene comentarios o no existe" });
+            }
+            else {
+                return Ok(comentarios);
+            }
+            
         }
 
         [AllowAnonymous]
@@ -60,59 +67,83 @@ namespace servicelayer.Controllers
             }
         }
 
-       /* [AllowAnonymous]
-        [HttpPost("IniciarComentario")]    
-        public IActionResult Post([FromQuery]int idEmpresa, int idVehiculo, string codigo)
+        [AllowAnonymous]
+        [HttpPost("ComentarComentario")]
+        public IActionResult Post(String id,[FromBody]Comentario comentario)
         {
             try
             {
-                var mensaje = _comentarioService.IniciarComentario(idEmpresa, idVehiculo, codigo);
-                
-                if (mensaje == "OK") //Los datos son correctos: se da por iniciado el comentario
-                {  
-                    return Ok(new { result = true, message = "Comentario iniciado con exito" });
+                var comentarioRetorno = _comentarioService.ComentarComentario(id,comentario);
+
+                if (comentarioRetorno != null)
+                {
+                    return Ok(new { result = true, message = "Comentario ingresado correctamente" });
                 }
                 else
-                {                    
-                    return Ok(new { result = false, message = mensaje });
+                {
+                    return Ok(new { result = false, message = "Algo salio mal" });
                 }
+
             }
             catch (Exception)
             {
-                return Ok(new { result = false, message = "Algo salio mal, no se puede iniciar el Comentario." });
-            }            
-            
+                return Ok(new { result = false, message = "Los datos del Comentario no tienen el formato esperado." });
+            }
         }
 
-        [AllowAnonymous]
-        [HttpPost("FinalizarComentario")]        
-        public IActionResult FinalizarComentario([FromQuery]int idEmpresa, int idVehiculo, string codigo)
-        {
-            try
-            {
-                var mensaje = _comentarioService.FinalizarComentario(idEmpresa, idVehiculo, codigo);
-                               
-                if (mensaje == "OK") 
-                {
-                    //Ver si esto del vehiculo va en la logica
-                    bl.VehiculoController controladorVehiculo = new bl.VehiculoController();                    
-                    var vehiculo = controladorVehiculo.ObtenerVehiculo(idVehiculo, idEmpresa);
-                    vehiculo.Estado = "Disponible";
-                    controladorVehiculo.ModificarVehiculo(idEmpresa, vehiculo);
+        /* [AllowAnonymous]
+         [HttpPost("IniciarComentario")]    
+         public IActionResult Post([FromQuery]int idEmpresa, int idVehiculo, string codigo)
+         {
+             try
+             {
+                 var mensaje = _comentarioService.IniciarComentario(idEmpresa, idVehiculo, codigo);
 
-                    return Ok(new { result = true, message = "Comentario finalizado con éxito ", precio = vehiculo.TarifaFija.ToString()});
-                }
-                else
-                {
-                    return Ok(new { result = false, message = mensaje });
-                }
-            }
-            catch (Exception)
-            {
-                return Ok(new { result = false, message = "Error, verificar datos." });
-            }
+                 if (mensaje == "OK") //Los datos son correctos: se da por iniciado el comentario
+                 {  
+                     return Ok(new { result = true, message = "Comentario iniciado con exito" });
+                 }
+                 else
+                 {                    
+                     return Ok(new { result = false, message = mensaje });
+                 }
+             }
+             catch (Exception)
+             {
+                 return Ok(new { result = false, message = "Algo salio mal, no se puede iniciar el Comentario." });
+             }            
 
-        }*/
+         }
+
+         [AllowAnonymous]
+         [HttpPost("FinalizarComentario")]        
+         public IActionResult FinalizarComentario([FromQuery]int idEmpresa, int idVehiculo, string codigo)
+         {
+             try
+             {
+                 var mensaje = _comentarioService.FinalizarComentario(idEmpresa, idVehiculo, codigo);
+
+                 if (mensaje == "OK") 
+                 {
+                     //Ver si esto del vehiculo va en la logica
+                     bl.VehiculoController controladorVehiculo = new bl.VehiculoController();                    
+                     var vehiculo = controladorVehiculo.ObtenerVehiculo(idVehiculo, idEmpresa);
+                     vehiculo.Estado = "Disponible";
+                     controladorVehiculo.ModificarVehiculo(idEmpresa, vehiculo);
+
+                     return Ok(new { result = true, message = "Comentario finalizado con éxito ", precio = vehiculo.TarifaFija.ToString()});
+                 }
+                 else
+                 {
+                     return Ok(new { result = false, message = mensaje });
+                 }
+             }
+             catch (Exception)
+             {
+                 return Ok(new { result = false, message = "Error, verificar datos." });
+             }
+
+         }*/
 
 
 

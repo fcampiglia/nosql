@@ -43,9 +43,52 @@ namespace bl
         public List<Comentario> ComentariosUsuario(String email)
         {
 
-            List<Comentario> listaRetorno = _comentarios.Find<Comentario>(Comentario => Comentario.Usuario.Email == email).ToList();
+            var usuario = _usuarios.Find<Usuario>(usu => usu.Email == email).FirstOrDefault();
+            if (usuario is null)
+            {
+                return null;
+            }
+            else {
+                List<Comentario> listaRetorno = _comentarios.Find<Comentario>(Comentario => Comentario.Usuario.Email == email).ToList();
+                return listaRetorno;
+            }
 
-            return listaRetorno;
+        }
+        
+        public Comentario ComentarComentario(String id,Comentario comentarioNuevo)
+        {
+
+            var comentarioPadre = _comentarios.Find<Comentario>(com => com.InternalId == id).FirstOrDefault();
+            //Buscamos que el id exista
+            if (comentarioPadre is null)
+            {
+                return null;
+            }
+            else { 
+                var usuario = _usuarios.Find<Usuario>(usu => usu.Email == comentarioNuevo.Usuario.Email).FirstOrDefault();
+                //Comprobamos el email
+                if (usuario is null)
+                {
+                    return null;
+                }
+                else {
+                    comentarioNuevo.Usuario = usuario;
+                    //Guardamos el comentarios en la bd y luego se lo agregamos al padre (De esta manera si tendriamos Id)
+                    //_comentarios.InsertOne(comentarioNuevo);
+
+                    //Inicializamos la lista en caso de que sea null 
+                    if (comentarioPadre.ListaComentarios.ToList() is null) {
+                        comentarioPadre.ListaComentarios = new List<Comentario>();
+                    }
+                    
+                    comentarioPadre.ListaComentarios.Add(comentarioNuevo);
+                    var filter = Builders<Comentario>.Filter.Eq(c => c.InternalId, comentarioPadre.InternalId);
+                    _comentarios.ReplaceOne(comentario => comentario.InternalId == comentarioPadre.InternalId, comentarioPadre );
+                    return comentarioPadre;
+                }
+                
+            }
+            
 
         }
 
