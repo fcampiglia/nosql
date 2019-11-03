@@ -54,7 +54,21 @@ namespace bl
             }
 
         }
-        
+
+        public object GetComentario(string id)
+        {
+            var comentario = _comentarios.Find<Comentario>(com => com.InternalId == id).FirstOrDefault();
+            if (comentario is null)
+            {
+                return null;
+            }
+            else
+            {
+                return comentario;
+            }
+
+        }
+
         public Comentario ComentarComentario(String id,Comentario comentarioNuevo)
         {
 

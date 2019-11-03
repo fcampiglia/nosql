@@ -44,6 +44,23 @@ namespace servicelayer.Controllers
         }
 
         [AllowAnonymous]
+        [HttpGet("Comentario")]
+        public IActionResult Get([FromQuery]String id)
+        {
+            var comentarios = _comentarioService.GetComentario(id);
+            if (comentarios is null)
+            {
+                return Ok(new { result = false, message = "No existe el comentario" });
+            }
+            else
+            {
+                return Ok(comentarios);
+            }
+
+        }
+
+
+        [AllowAnonymous]
         [HttpPost("Comentar")]
         public IActionResult Post([FromBody]Comentario comentario)
         {
