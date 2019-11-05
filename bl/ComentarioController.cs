@@ -55,7 +55,7 @@ namespace bl
 
         }
 
-        public object GetComentario(string id)
+        public Comentario GetComentario(string id)
         {
             var comentario = _comentarios.Find<Comentario>(com => com.InternalId == id).FirstOrDefault();
             if (comentario is null)
@@ -69,10 +69,10 @@ namespace bl
 
         }
 
-        public Comentario ComentarComentario(String id,Comentario comentarioNuevo)
+        public Comentario ComentarComentario(String idComentarioPadre,Comentario comentarioNuevo)
         {
 
-            var comentarioPadre = _comentarios.Find<Comentario>(com => com.InternalId == id).FirstOrDefault();
+            var comentarioPadre = _comentarios.Find<Comentario>(com => com.InternalId == idComentarioPadre).FirstOrDefault();
             //Buscamos que el id exista
             if (comentarioPadre is null)
             {
