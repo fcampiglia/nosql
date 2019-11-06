@@ -20,16 +20,39 @@ namespace bl
             _usuarios = database.GetCollection<Usuario>(settings.UsuarioCollectionName);
         }
         
-
     
         public Usuario AgregarUsuario(Usuario usuario)
         {
-            _usuarios.InsertOne(usuario);
-            return usuario;
+            if (this.ExisteUsuario(usuario.Email))
+            {
+                return null;
+            }
+            else
+            {                
+                _usuarios.InsertOne(usuario);
+                return usuario;
+            }
+            
         }
                                     
         public List<Usuario> Get() =>
            _usuarios.Find(Usuario => true).ToList();
+
+        private bool ExisteUsuario(string email)
+        {
+            Usuario _usuario = _usuarios.Find<Usuario>(usu => usu.Email == email).FirstOrDefault();
+            
+            if (_usuario is null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+
 
 
     }

@@ -44,7 +44,7 @@ namespace servicelayer.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet("BuscarComentariosDeUnComentario")]
+        [HttpGet("LeerComentario")]
         public IActionResult Get([FromQuery]String idComentario)
         {
             List<Comentario> comentarios = _comentarioService.GetComentario(idComentario);
