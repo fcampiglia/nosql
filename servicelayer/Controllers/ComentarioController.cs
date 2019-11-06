@@ -44,21 +44,27 @@ namespace servicelayer.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet("BuscarComentario")]
-        public IActionResult Get([FromBody]String idComentario)
+        [HttpGet("BuscarComentariosDeUnComentario")]
+        public IActionResult Get([FromQuery]String idComentario)
         {
-            Comentario comentarios = _comentarioService.GetComentario(idComentario);
+            List<Comentario> comentarios = _comentarioService.GetComentario(idComentario);
+            //List<Comentario> comentariosFinal = null;
+            //foreach (Comentario com in comentarios)
+            //{
+            //    com.ComentarioPadre = null;
+            //    comentariosFinal.Add(com);
+            //}
+
             if (comentarios is null)
             {
-                return Ok(new { result = false, Respuesta = "No existe el comentario" });
+                return Ok(new { result = false, message = "El usuario ingresado no tiene comentarios o no existe" });
             }
             else
             {
-                return Ok(new { comentarios.Usuario.Nombre, comentarios.Usuario.Email, comentarios.Texto });
+                return Ok(comentarios);
             }
 
         }
-
 
         [AllowAnonymous]
         [HttpPost("Comentar")]
@@ -74,7 +80,7 @@ namespace servicelayer.Controllers
                 }
                 else
                 {
-                    return Ok(new { result = false, message = "Algo salio mal" });
+                    return Ok(new { result = false, message = "El usuario no existe, verifique!!" });
                 }
                 
             }
@@ -86,19 +92,19 @@ namespace servicelayer.Controllers
 
         [AllowAnonymous]
         [HttpPost("ComentarComentario")]
-        public IActionResult Post(String id,[FromBody]Comentario comentario)
+        public IActionResult Post([FromBody]SDTComentarComentario comentario)
         {
             try
             {
-                var comentarioRetorno = _comentarioService.ComentarComentario(id,comentario);
+                var comentarioRetorno = _comentarioService.ComentarComentario(comentario.IdPadre, comentario.Comentario);
 
                 if (comentarioRetorno != null)
                 {
-                    return Ok(new { result = true, message = "Comentario ingresado correctamente" });
+                    return Ok(new { result = false, message = comentarioRetorno });
                 }
                 else
                 {
-                    return Ok(new { result = false, message = "Algo salio mal" });
+                    return Ok(new { result = true, message = "Comentario ingresado correctamente" });
                 }
 
             }

@@ -31,13 +31,17 @@ namespace bl
 
             var usuario = _usuarios.Find<Usuario>(usu => usu.Email == comentario.Usuario.Email).FirstOrDefault();
 
+            if (usuario is null)
+            {
+                return null;
+            }
+            else { 
+                comentario.Usuario = usuario;                      
 
-            comentario.Usuario = usuario;                      
+                _comentarios.InsertOne(comentario);
 
-            _comentarios.InsertOne(comentario);
-
-            return comentario;          
-            
+                return comentario;
+            }
         }
 
         public List<Comentario> ComentariosUsuario(String email)
@@ -55,9 +59,10 @@ namespace bl
 
         }
 
-        public Comentario GetComentario(string id)
+        public List<Comentario> GetComentario(string id)
         {
-            var comentario = _comentarios.Find<Comentario>(com => com.InternalId == id).FirstOrDefault();
+            List<Comentario> comentario = _comentarios.Find<Comentario>(com => com.InternalId == id || com.ComentarioPadre.InternalId == id ).ToList();
+            
             if (comentario is null)
             {
                 return null;
@@ -69,40 +74,52 @@ namespace bl
 
         }
 
-        public Comentario ComentarComentario(String idComentarioPadre,Comentario comentarioNuevo)
+        public string ComentarComentario(String idComentarioPadre,Comentario comentarioNuevo)
         {
-
-            var comentarioPadre = _comentarios.Find<Comentario>(com => com.InternalId == idComentarioPadre).FirstOrDefault();
-            //Buscamos que el id exista
-            if (comentarioPadre is null)
-            {
-                return null;
-            }
-            else { 
-                var usuario = _usuarios.Find<Usuario>(usu => usu.Email == comentarioNuevo.Usuario.Email).FirstOrDefault();
-                //Comprobamos el email
-                if (usuario is null)
+            if(idComentarioPadre is null){
+                return "Debe ingresar Id del comentario padre";
+            }else { 
+                var comentarioPadre = _comentarios.Find<Comentario>(com => com.InternalId == idComentarioPadre).FirstOrDefault();
+                //Buscamos que el id exista
+                if (comentarioPadre is null)
                 {
-                    return null;
+                    return "No existe el comentario padre";
                 }
-                else {
-                    comentarioNuevo.Usuario = usuario;
-                    //Guardamos el comentarios en la bd y luego se lo agregamos al padre (De esta manera si tendriamos Id)
-                    //_comentarios.InsertOne(comentarioNuevo);
-
-                    //Inicializamos la lista en caso de que sea null 
-                    if (comentarioPadre.ListaComentarios.ToList() is null) {
-                        comentarioPadre.ListaComentarios = new List<Comentario>();
+                else { 
+                    var usuario = _usuarios.Find<Usuario>(usu => usu.Email == comentarioNuevo.Usuario.Email).FirstOrDefault();
+                    //Comprobamos el email
+                    if (usuario is null)
+                    {
+                        return "No existe el usuario";
                     }
-                    
-                    comentarioPadre.ListaComentarios.Add(comentarioNuevo);
-                    var filter = Builders<Comentario>.Filter.Eq(c => c.InternalId, comentarioPadre.InternalId);
-                    _comentarios.ReplaceOne(comentario => comentario.InternalId == comentarioPadre.InternalId, comentarioPadre );
-                    return comentarioPadre;
-                }
+                    else {
+                        
+                        comentarioNuevo.Usuario = usuario;
+                        //Guardamos el comentarios en la bd y luego se lo agregamos al padre (De esta manera si tendriamos Id)
+                        //_comentarios.InsertOne(comentarioNuevo);
+
+
+                        comentarioNuevo.ComentarioPadre = comentarioPadre;
+                        Comentario comentarioRetorno    = Create(comentarioNuevo);
+
+                        if (comentarioRetorno != null)
+                        {
+
+                            //var filter = Builders<Comentario>.Filter.Eq(c => c.InternalId, comentarioPadre.InternalId);
+                            //_comentarios.ReplaceOne(comentario => comentario.InternalId == comentarioPadre.InternalId, comentarioPadre);
+                            return null;
+                        }
+                        else
+                        {
+                            return "No se pudo crear el Comentario";
+                        }
+                        
+
+                    }
                 
-            }
+                }
             
+            }
 
         }
 

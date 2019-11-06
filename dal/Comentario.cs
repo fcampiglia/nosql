@@ -17,7 +17,7 @@ namespace dal
         
         public string Texto { get; set; }
 
-        public List<Comentario> ListaComentarios { get; set; }
+        public Comentario ComentarioPadre { get; set; }
         
     }
 }
